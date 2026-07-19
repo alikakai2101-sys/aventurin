@@ -583,11 +583,20 @@ app.get('/api/payment/callback', async (req, res) => {
   const statusStr = Status as string;
 
   if (authorityStr && statusStr) {
-    // Redirect user to the Account page, appending parameters so front-end App can fetch and verify the order status
-    res.redirect(`/index.html?paymentVerify=1&authority=${authorityStr}&status=${statusStr}`);
-  } else {
-    res.redirect('/index.html');
-  }
+  // Redirect user to the Account page, appending parameters so front-end App can fetch and verify the order status
+  res.redirect(`/index.html?paymentVerify=1&authority=${authorityStr}&status=${statusStr}`)
+} else {
+  res.redirect('/index.html');
+}
+});
+
+// ================= SERVE FRONTEND BUILD (Vite -> dist) =================
+import path from 'path';
+
+app.use(express.static(path.join(process.cwd(), 'dist')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(process.cwd(), 'dist', 'index.html'));
 });
 
 // ==========================================
