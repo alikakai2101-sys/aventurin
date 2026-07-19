@@ -7,7 +7,7 @@
       "price": 1850000,
       "image": "/src/assets/images/luxury_necklace_1784386427279.jpg",
       "category": "necklace",
-      "stock": 8,
+      "stock": 6,
       "variants": [
         "طلایی",
         "نقره‌ای",
@@ -129,7 +129,52 @@
       "name": "یبیبییبیب"
     }
   ],
-  "orders": [],
+  "orders": [
+    {
+      "id": "ord-391415",
+      "customerName": "Test User",
+      "customerPhone": "09120000000",
+      "province": "تهران",
+      "city": "تهران",
+      "postalCode": "12345",
+      "address": "Test Street",
+      "items": [
+        {
+          "productId": "p1",
+          "productTitle": "Test",
+          "quantity": 1,
+          "price": 250000,
+          "variant": "طلایی"
+        }
+      ],
+      "totalPrice": 250000,
+      "paymentStatus": "pending",
+      "trackingCode": "ZP-8611959",
+      "date": "۲۸ تیر ۱۴۰۵"
+    },
+    {
+      "id": "ord-673597",
+      "customerName": "Test User",
+      "customerPhone": "09120000000",
+      "province": "تهران",
+      "city": "تهران",
+      "postalCode": "12345",
+      "address": "Test Street",
+      "items": [
+        {
+          "productId": "p1",
+          "productTitle": "Test",
+          "quantity": 1,
+          "price": 250000,
+          "variant": "طلایی"
+        }
+      ],
+      "totalPrice": 250000,
+      "paymentStatus": "success",
+      "trackingCode": "ZP-1075672",
+      "date": "۲۸ تیر ۱۴۰۵"
+    }
+  ],
   "users": [
     {
       "id": "u-1",
@@ -154,6 +199,14 @@
       "passwordHash": "$2b$10$Diw9Xl1FNA6t7oGRQvxOouv4Of7J7VgZxMWEGFrPXBtPJ.EjixH/m",
       "role": "user",
       "status": "blocked"
+    },
+    {
+      "name": "سیسبیبی",
+      "email": "alikakai2101@gmail.com",
+      "passwordHash": "$2b$10$uSKaes3VcgPqveEjSrNiEuXVdEGNOM9troG6UFTj4rG.5YUr.7JG.",
+      "role": "user",
+      "status": "active",
+      "id": "u-640571"
     }
   ],
   "coupons": [],

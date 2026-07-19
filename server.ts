@@ -579,15 +579,26 @@ app.post('/api/payment/verify', async (req, res) => {
 // Production support callback redirect route (useful for traditional form action return targets)
 app.get('/api/payment/callback', async (req, res) => {
   const { Authority, Status, orderId } = req.query;
-  const authorityStr = Authority as string;
-  const statusStr = Status as string;
+  const authorityStr = typeof Authority === 'string' ? Authority : '';
+  const statusStr = typeof Status === 'string' ? Status : '';
+  const orderIdStr = typeof orderId === 'string' ? orderId : '';
 
   if (authorityStr && statusStr) {
-    // Redirect user to the Account page, appending parameters so front-end App can fetch and verify the order status
-    res.redirect(`/index.html?paymentVerify=1&authority=${authorityStr}&status=${statusStr}`);
-  } else {
-    res.redirect('/index.html');
+    const query = new URLSearchParams({
+      paymentVerify: '1',
+      authority: authorityStr,
+      status: statusStr,
+    });
+
+    if (orderIdStr) {
+      query.set('orderId', orderIdStr);
+    }
+
+    res.redirect(`/index.html?${query.toString()}`);
+    return;
   }
+
+  res.redirect('/index.html');
 });
 
 // ==========================================
@@ -754,11 +765,14 @@ app.get('/api/admin/custom-orders', authenticateToken, isAdmin, async (req, res)
 app.put('/api/admin/custom-orders/:id/price', authenticateToken, isAdmin, async (req, res) => {
   try {
     const { adminPrice } = req.body;
-    if (!adminPrice) {
+    const parsedAdminPrice = Number(adminPrice);
+
+    if (adminPrice === undefined || adminPrice === null || Number.isNaN(parsedAdminPrice)) {
       res.status(400).json({ message: 'وارد کردن مبلغ پیشنهادی الزامی است.' });
       return;
     }
-    const order = await dbService.updateCustomOrderPrice(req.params.id, Number(adminPrice));
+
+    const order = await dbService.updateCustomOrderPrice(req.params.id, parsedAdminPrice);
     if (!order) {
       res.status(404).json({ message: 'سفارش یافت نشد.' });
       return;

@@ -1,5 +1,3 @@
-import axios from 'axios';
-
 export interface PaymentResponse {
   success: boolean;
   authority: string;
@@ -30,7 +28,7 @@ export class PaymentService {
       return {
         success: true,
         authority: mockAuthority,
-        paymentUrl: `/index.html?paymentVerify=1&authority=${mockAuthority}&status=OK&orderId=${orderId}`
+        paymentUrl: `/index.html?paymentVerify=1&authority=${mockAuthority}&status=OK&orderId=${orderId}`,
       };
     } catch (error: any) {
       return {
