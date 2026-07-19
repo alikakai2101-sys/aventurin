@@ -12,7 +12,7 @@ import { Product, Order } from './src/types';
 import { Coupon } from './src/components/UserPages';
 
 const app = express();
-const PORT = 3000;
+const PORT = Number(process.env.PORT || 3000);
 const JWT_SECRET = process.env.JWT_SECRET || 'aventurin-ultra-secret-key-1405-gold';
 
 app.use(express.json());
@@ -928,7 +928,9 @@ app.post('/api/custom-orders/:id/chat', authenticateToken, async (req: AuthReque
 
 // Serve frontend with Vite middleware in development
 async function startServer() {
-  if (process.env.NODE_ENV !== 'production') {
+  const isProduction = process.env.NODE_ENV === 'production';
+
+  if (!isProduction) {
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: 'spa',
