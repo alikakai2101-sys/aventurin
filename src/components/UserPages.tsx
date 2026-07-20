@@ -6,20 +6,10 @@ import {
   Eye, Edit, ToggleLeft, Lock, Info, Share2, Map, Users, Settings, Tag, ArrowRight
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Product, CartItem, Order } from '../types';
+import { Product, CartItem, Order, Coupon } from '../types';
 import { formatPersianPrice, formatPersianNumber } from './ProductCard';
 import { PROVINCES } from '../data';
 import HandmadesView from './HandmadesView';
-
-// Definition of additional type helpers
-export interface Coupon {
-  code: string;
-  type: 'percent' | 'amount';
-  value: number;
-  expiryDate: string;
-  usageLimit: number;
-  usageCount: number;
-}
 
 interface UserPagesProps {
   products: Product[];

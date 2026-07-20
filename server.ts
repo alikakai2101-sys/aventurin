@@ -8,8 +8,7 @@ import bcrypt from 'bcryptjs';
 import { createServer as createViteServer } from 'vite';
 import { dbService } from './server/db/dbService';
 import { PaymentService } from './server/services/PaymentService';
-import { Product, Order } from './src/types';
-import { Coupon } from './src/components/UserPages';
+import { Product, Order, Coupon } from './src/types';
 
 const app = express();
 const PORT = Number(process.env.PORT || 3000);

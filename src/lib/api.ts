@@ -1,5 +1,4 @@
-import { Product, Order } from '../types';
-import { Coupon } from '../components/UserPages';
+import { Product, Order, Coupon } from '../types';
 
 const BASE_URL = '/api';
 

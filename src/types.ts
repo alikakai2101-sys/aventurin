@@ -63,6 +63,15 @@ export interface SampleItem {
   createdAt: string;
 }
 
+export interface Coupon {
+  code: string;
+  type: 'percent' | 'amount';
+  value: number;
+  expiryDate: string;
+  usageLimit: number;
+  usageCount: number;
+}
+
 export interface CustomOrder {
   id: string;
   userId: string;

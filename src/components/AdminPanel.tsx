@@ -6,9 +6,8 @@ import {
   Database, Server, AlertTriangle
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Product, Order } from '../types';
+import { Product, Order, Coupon } from '../types';
 import { formatPersianPrice, formatPersianNumber } from './ProductCard';
-import { Coupon } from './UserPages';
 import { api } from '../lib/api';
 import AdminHandmades from './AdminHandmades';
 

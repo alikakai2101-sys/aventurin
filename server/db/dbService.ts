@@ -1,7 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
 import { readDb, writeDb, UserRecord } from './db';
-import { Product, Order, SampleItem, SampleCategory, CustomOrder, ChatMessage } from '../../src/types';
-import { Coupon } from '../../src/components/UserPages';
+import { Product, Order, SampleItem, SampleCategory, CustomOrder, ChatMessage, Coupon } from '../../src/types';
 
 // ==========================================
 // 1. DYNAMIC MONGODB CONNECTION SETUP

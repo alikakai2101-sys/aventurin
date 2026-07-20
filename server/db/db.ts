@@ -1,8 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import bcrypt from 'bcryptjs';
-import { Product, Order, StoreCategory, SampleItem, SampleCategory, CustomOrder, ChatMessage } from '../../src/types';
-import { Coupon } from '../../src/components/UserPages';
+import { Product, Order, StoreCategory, SampleItem, SampleCategory, CustomOrder, ChatMessage, Coupon } from '../../src/types';
 
 export interface UserRecord {
   id: string;

@@ -28,9 +28,9 @@ import { motion, AnimatePresence } from 'motion/react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import AdminPanel from './components/AdminPanel';
-import UserPages, { Coupon } from './components/UserPages';
+import UserPages from './components/UserPages';
 import PaymentGateway from './components/PaymentGateway';
-import { Product, CartItem, Order } from './types';
+import { Product, CartItem, Order, Coupon } from './types';
 import { formatPersianPrice, formatPersianNumber } from './components/ProductCard';
 import { api } from './lib/api';
 
